@@ -7,7 +7,9 @@ hd_start = 500
 
 [ffmpeg]
 threads = 4
+ac = 2
 acodec = "libfaac"
+vcodec = "libx264"
 framerate = "29.97"
 h264_preset = "superfast"
 hls_time = 2
@@ -19,3 +21,4 @@ options = "-loglevel warning -async 1  -tune zerolatency -flags -global_header -
 508 = "abc.png"
 511 = "fox.png"
 512 = "nbc.png"
+5-1 = "pbs.png"

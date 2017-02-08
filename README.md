@@ -1,6 +1,6 @@
 # :zap: Wallop :zap:
 
-Wallop is a transcoding server for your [HDHomeRun Prime](http://www.silicondust.com/products/hdhomerun/prime/).
+Wallop is a transcoding server for your [HDHomeRun Prime](https://www.silicondust.com/product/hdhomerun-prime/).
 
 Wallop lets you watch TV streams on your iPhone, iPad, Roku, Web, Android device. Even away from home.
 
@@ -212,21 +212,20 @@ Wallop.
 On a machine that has Docker installed, pull the image down:
 
 ```sh
-sudo docker pull ipstatic/wallop
+docker pull ipstatic/wallop
 ```
 
-Next setup a directory to contain the Wallop config file. Inside of this directory
-place a copy of the `config/config.toml` file. Make sure to change the following:
-
+Next copy the sample config.toml file and ensure these directives are set:
 ```toml
 ffmpeg_path = "/ffmpeg/bin/ffmpeg"
 acodec = "libfdk_aac"
+transcoding_path = "/tmp"
 ```
 
 Then start the container:
 
 ```sh
-sudo docker run -d -v /$config_directory:/wallop/config -p 8888:8888 ipstatic/wallop
+docker run --rm --name wallop -v $(pwd)/config.toml:/wallop/config/config.toml -p 8888:8888 ipstatic/wallop:latest
 ```
 
 ## Contributing
